@@ -7,8 +7,9 @@ exports.typeDefs = gql`
     deleteCategory(id: ID!): Boolean
     deleteProduct(id: ID!): Boolean
     deleteReview(id: ID!): Boolean
-    updateCategory(id: ID!, input: UpdateCategoryInput!): Category!
-    updateProduct(id: ID!, input: UpdateProductInput!): Product!
+    updateCategory(id: ID!, input: UpdateCategoryInput!): Category
+    updateProduct(id: ID!, input: UpdateProductInput!): Product
+    updateReview(id: ID!, input: UpdateReviewInput): Review
   }
   type Query {
     products(filter: ProductsFilterInput): [Product!]!
@@ -61,6 +62,12 @@ exports.typeDefs = gql`
     onSale: Boolean!
     image: String!
     categoryId: String
+  }
+  input UpdateReviewInput {
+    date: String!
+    title: String!
+    comment: String!
+    rating: Int!
   }
   input AddProductInput {
     name: String!
