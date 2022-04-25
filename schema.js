@@ -6,6 +6,7 @@ exports.typeDefs = gql`
     addReview(input: AddReviewInput!): Review!
     deleteCategory(id: ID!): Boolean
     deleteProduct(id: ID!): Boolean
+    deleteReview(id: ID!): Boolean
   }
   type Query {
     products(filter: ProductsFilterInput): [Product!]!
@@ -39,7 +40,7 @@ exports.typeDefs = gql`
     title: String!
     comment: String!
     rating: Int!
-    productId: Int!
+    productId: String!
   }
   input ProductsFilterInput {
     onSale: Boolean
